@@ -6,7 +6,7 @@ module GoogleCharts
     def self.define( name, options = {} )
       helper_name = [options[:prefix], name, options[:suffix]||'chart'].compact.join( '_' )
 
-      module_eval <<-DEF
+      GoogleCharts::Helpers.module_eval <<-DEF
         def #{helper_name}( *options )
           chart = GoogleCharts::Charts::#{name.to_s.capitalize}.new( self, *options )
           yield chart if block_given?
