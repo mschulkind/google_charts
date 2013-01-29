@@ -63,7 +63,7 @@ module GoogleCharts::Charts
       @template.javascript_tag(
         <<-EOS
         // if( typeof google == 'undefined' ) {
-          document.write(unescape("%3Cscript src='http://www.google.com/jsapi' type='text/javascript'%3E%3C/script%3E"));
+          document.write(unescape("%3Cscript src='//www.google.com/jsapi' type='text/javascript'%3E%3C/script%3E"));
         // };
         EOS
       )
