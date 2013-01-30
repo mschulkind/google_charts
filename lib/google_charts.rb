@@ -24,6 +24,7 @@ module GoogleCharts
     define :bar
     define :column
     define :geo
+    define :table
   end
 
 end

@@ -29,7 +29,7 @@ module GoogleCharts::Charts
 
     private
 
-    def packages; ['corechart', 'geochart'].to_json end
+    def packages; ['corechart', 'geochart', 'table'].to_json end
 
     def value_for( method_or_proc, obj )
       method_or_proc.is_a?( Proc ) ? method_or_proc.call( obj ) : obj.send( method_or_proc )
@@ -87,7 +87,13 @@ module GoogleCharts::Charts
     end
 
     def google_visualization_class
-      self.class.name.split( "::" ).last + 'Chart'
+      prefix = self.class.name.split( "::" ).last 
+      
+      if prefix == 'Table'
+        prefix
+      else
+        prefix + 'Chart'
+      end
     end
 
     def container_div
