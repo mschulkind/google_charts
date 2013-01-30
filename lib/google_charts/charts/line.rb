@@ -8,7 +8,7 @@ module GoogleCharts::Charts
     end
 
     def label(name, method = nil, &block); @label = [name, block ? block : method]; end
-    def value(name, method = nil, &block); @values << [name, block ? block : method]; end
+    def value(name, method = nil, type = 'number', &block); @values << [name, type, block ? block : method]; end
 
 
     private
@@ -16,7 +16,7 @@ module GoogleCharts::Charts
     def setup_data
       # setup the columns
       add_column( 'string', @label.first )
-      @values.each { |val| add_column( 'number', val.first ) }
+      @values.each { |val| add_column( val[1], val.first ) }
 
       # setup the rows
       @collection.each do |col|

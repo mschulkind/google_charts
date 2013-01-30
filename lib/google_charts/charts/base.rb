@@ -29,7 +29,7 @@ module GoogleCharts::Charts
 
     private
 
-    def packages; ['corechart'].to_json end
+    def packages; ['corechart', 'geochart'].to_json end
 
     def value_for( method_or_proc, obj )
       method_or_proc.is_a?( Proc ) ? method_or_proc.call( obj ) : obj.send( method_or_proc )
