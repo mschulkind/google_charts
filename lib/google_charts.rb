@@ -25,6 +25,7 @@ module GoogleCharts
     define :column
     define :geo
     define :table
+    define :scatter
   end
 
 end

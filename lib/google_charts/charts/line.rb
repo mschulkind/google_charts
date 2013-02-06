@@ -14,16 +14,21 @@ module GoogleCharts::Charts
     private
 
     def setup_data
-      # setup the columns
-      add_column( 'string', @label.first )
+      unless @label.empty?
+        # setup the columns
+        add_column( 'string', @label.first )
+      end
+      
       @values.each { |val| add_column( val[1], val.first ) }
 
       # setup the rows
       @collection.each do |col|
-        label = value_for( @label.last, col )
+        unless @label.empty?
+          label = value_for( @label.last, col )
+        end
         values = @values.map { |value| value_for( value.last, col ) }
 
-        add_row( [label, *values] )
+        add_row( [label, *values].compact )
       end
     end
   end

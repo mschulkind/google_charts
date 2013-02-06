@@ -9,6 +9,7 @@ module GoogleCharts
     autoload :Column, File.dirname(__FILE__) + "/charts/column"
     autoload :Geo, File.dirname(__FILE__) + "/charts/geo"
     autoload :Table, File.dirname(__FILE__) + "/charts/table"
+    autoload :Scatter, File.dirname(__FILE__) + "/charts/scatter"
 
   end
 end
